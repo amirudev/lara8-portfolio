@@ -11,7 +11,7 @@
 		<ul class="flex items-center">
 			<li><a href="/" class="p-4 font-bold">Home</a></li>
 			<li><a href="{{ route('skill') }}" class="p-4 font-bold">Skills</a></li>
-			<li><a href="{{ route('blog') }}" class="p-4 font-bold">Blogs</a></li>
+			<li><a href="{{ route('activity') }}" class="p-4 font-bold">Activity</a></li>
 			<li><a href="{{ route('forum') }}" class="p-4 font-bold">Forum</a></li>
 		</ul>
 		<ul class="flex items-center">

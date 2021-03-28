@@ -18,9 +18,10 @@ class AuthController extends Controller
     			'password' => 'required'
     		]);
 
-    		if(auth()->attempt($request->only('username', 'password')){
-    			return redirect()->route('index');
+    		if(auth()->attempt($request->only('username', 'password'))){
+    			return redirect()->route('dashboard');
     		}
+
     		session()->flash('status', 'Invalid login details');
     	}
     	return view('auth.login');
@@ -44,7 +45,7 @@ class AuthController extends Controller
 
     		auth()->attempt($request->only('email', 'password'));
 
-			return redirect()->route('index');
+			return redirect()->route('dashboard');
     	}
     	return view('auth.register');
     }

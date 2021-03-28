@@ -18,15 +18,15 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/skill', [MainController::class, 'skill'])->name('skill');
-Route::get('/blog', [MainController::class, 'blog'])->name('blog');
+Route::get('/activity', [MainController::class, 'activity'])->name('activity');
 
 Route::middleware(['auth'])->group(function(){
-	Route::get('/forum', [MainController::class, 'forum'])->name('forum');
+	Route::post('/forum', [MainController::class, 'forum'])->name('forum');
 });
+Route::get('/forum', [MainController::class, 'forum'])->name('forum');
 
 Route::match(['GET', 'POST'], '/login', [AuthController::class, 'index'])->name('login');
 Route::match(['GET', 'POST'], '/register', [AuthController::class, 'register'])->name('register');
 Route::get('/signout', [AuthController::class, 'signout'])->name('signout');
 
-Route::get('/index', [MainController::class, 'index'])->name('index');
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('dashboard');
