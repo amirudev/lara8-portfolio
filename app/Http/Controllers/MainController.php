@@ -23,10 +23,19 @@ class MainController extends Controller
     		auth()->user()->posts()->create($request->only('message'));
     	}
 
-    	$posts = Forum::paginate(5);
+    	$posts = Forum::latest()->paginate(5);
 
     	return view('pages.forum',[
     		'posts' => $posts
     	]);
+    }
+
+    public function destroy(Forum $post)
+    {
+    	$this->authorize('delete', $post);
+
+    	$post->delete();
+
+    	return back();
     }
 }

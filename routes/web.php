@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/forum', [MainController::class, 'forum'])->name('forum');
 });
 Route::get('/forum', [MainController::class, 'forum'])->name('forum');
+Route::delete('/forum/{post}', [MainController::class, 'destroy'])->name('forum.destroy');
 
 Route::match(['GET', 'POST'], '/login', [AuthController::class, 'index'])->name('login');
 Route::match(['GET', 'POST'], '/register', [AuthController::class, 'register'])->name('register');
